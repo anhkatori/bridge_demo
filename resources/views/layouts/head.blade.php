@@ -30,8 +30,10 @@
 <link rel="stylesheet" type="text/css" href="/backend/css/chart.css" />
 
 <!-- Custom css-->
+<link rel="stylesheet" type="text/css" href="/backend/assets/css/custom.css">
 <link rel="stylesheet" type="text/css" href="/backend/css/style.css">
 <link rel="stylesheet" type="text/css" href="/backend/app-assets/vendors/css/forms/toggle/switchery.min.css">
+
 {{-- clockpicker --}}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.css"
       integrity="sha512-BB0bszal4NXOgRP9MYCyVA0NNK2k1Rhr+8klY17rj4OhwTmqdPUQibKUDeHesYtXl7Ma2+tqC6c7FzYuHhw94g=="

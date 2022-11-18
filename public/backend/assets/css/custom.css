@@ -1,0 +1,229 @@
+.card, .card-header, .card-content {
+    box-shadow: none;
+    background-color: #fafafa;
+}
+
+.card .card-title {
+    font-size: 30px;
+    letter-spacing: inherit;
+    color: #07c5d3;
+    font-weight: bold;
+}
+
+.card .card-header {
+    padding: 2rem 1.5rem;
+}
+
+.card .card-position {
+    font-size: 10px;
+    margin-bottom: 3rem;
+    color: #3ea4ca;
+}
+
+.table-head > tr > th{
+    color: #07c5d3;
+    padding: 0.75rem;
+    background-color: #fff;
+    border: none;
+    border-bottom: 2px solid #e3ebf3;
+}
+
+.table-head > tr > th:first-child {
+    border-top-left-radius: 20px;
+}
+
+.table-head > tr > th:last-child {  
+    border-top-right-radius: 20px;
+}
+
+.table-head th span {
+    color: #e1e1e1;
+    margin-top: -4px;
+}
+
+/* school  */
+
+form .form-regist-school {
+    display: flex;
+    max-width: 100%;
+    padding-right: 24px;
+}
+
+form .form-regist-school .form-group {
+    display: flex;
+    width: 634px;
+}
+
+form .form-search-school {
+    display: flex;
+    max-width: 100%;
+    padding-right: 0;
+}
+
+form .form-search-school .form-group {
+    display: flex;
+    width: 100%;
+}
+
+form .form-search-school .form-group a {
+    border-radius: 20px;
+    width: 35%;
+    margin-left: -7px;
+    background-color: #07c5d3;
+    color: #fff;
+}
+
+
+.form-control:focus {
+    border-color: #ccd6e6;
+}
+
+#no {
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    width: 28%;
+    border: none;
+}
+
+#category {
+    border-radius: 0;
+    border: none;
+    width: 100%;
+}
+
+#number_of_registrations {
+    border: none;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#search {
+    border: none;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.btn-regist-school {
+    background-color: #07c5d3;
+    border-color: #07c5d3;
+    border-radius: 30px;
+    color: #fff;
+    padding: 12px 50px;
+}
+
+.btn-regist-school:hover, form .form-search-school .form-group a:hover {
+    color: #fff;
+    background-color: #30bcc6;
+}
+
+/* users */
+
+.card-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+form .form-search-users {
+    min-width: 100%;
+}
+
+form .info-box-users {
+    background-color: #f0f0f0;
+    width: 100%;
+    min-height: 145px;
+    border-radius: 30px;
+}
+
+form .info-box-users .info {
+    margin-right: 25px;
+}
+
+form .info-box-users .info-up {
+    margin: 25px 0 18px 20px;
+}
+
+form .info-box-users .info-down {
+    margin: 0 0 18px 20px;
+}
+
+form .info-box-users .info-up label, form .info-box-users .info-down label {
+    margin-right: 15px;
+    width: 42px;
+    align-items: center;
+    display: flex;
+    margin-bottom: 0;
+    justify-content: flex-end;
+}
+
+.form-search {
+    width: 70%;
+}
+
+form .info-box-users .info-up input, form .info-box-users .info-down input {
+    width: 209px;
+    border-radius: 30px;
+}
+
+form .info-box-users .info-down .tb-btn-search {
+    margin-top: 0;
+    margin-left: 20px;
+    top: 0;
+    right: 40px;
+}
+
+form .info-box-users .info-down .tb-btn-search a {
+    background-color: #07c5d3;
+    border-color: #07c5d3;
+    border-radius: 30px;
+    color: #fff;
+    padding: 10px 30px;
+}
+
+.form-add {
+    width: 25%;
+    margin-bottom: 56px;
+}
+
+.form-add form a {
+    background-color: #07c5d3;
+    border-color: #07c5d3;
+    border-radius: 30px;
+    color: #fff;
+    padding: 10px 35px;
+}
+
+.form-add #add-single {
+    margin-left: 20px;
+}
+
+.form-add #add-single a {
+    background-color: #fc9025;
+    border-color: #fc9025;
+}
+
+/* videos  */
+
+.registration-date {
+    float: right;
+    margin-right: 2%;
+}
+
+.card-form .form-video {
+    min-width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 30px;
+}
+
+form .form-add-video .info-box-video {
+    margin: 44px;
+}
+
+form .form-add-video .info-box-video .add-video {
+
+}

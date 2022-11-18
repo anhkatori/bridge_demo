@@ -14,17 +14,21 @@
                <thead class="table-head">
                <tr>
                    <th class="text-center" style="width: 8%;">
-                        No.
+                        氏名
                         <span style="float: right;">
                             <i class="fa fa-sort-desc" aria-hidden="true"></i>
                         </span>
                     </th>
                     
-                   <th style="width: 45%;">学校名<span style="float: right;"><i class="fa fa-sort-desc" aria-hidden="true"></i></span></th>
-                   <th style="width: 20%;">登録数<span style="float: right;"><i class="fa fa-sort-desc" aria-hidden="true"></i></span></th>
-                   <th style="width: 20%;">登録日</th>
-                   <th class="text-center" style="width: 5%;">編集</th>
-                   <th class="text-center" style="width: 5%;">削除</th>
+                   <th>ID<span style="float: right;"><i class="fa fa-sort-desc" aria-hidden="true"></i></span></th>
+                   <th>学校名</th>
+                   <th>年度</th>
+                   <th>所属 </th>
+                   <th>利用時間</th>
+                   <th>登録日</th>
+                   <th>有効期限</th>
+                   <th>ステータス</th>
+                   <th>アクション</th>
                </tr>
                </thead>
 {{--                <tbody>--}}
