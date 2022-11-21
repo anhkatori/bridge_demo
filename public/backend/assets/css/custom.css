@@ -1,6 +1,7 @@
 .card, .card-header, .card-content {
     box-shadow: none;
     background-color: #fafafa;
+    margin-bottom: 0;
 }
 
 .card .card-title {
@@ -18,6 +19,32 @@
     font-size: 10px;
     margin-bottom: 3rem;
     color: #3ea4ca;
+}
+
+.table-responsive {
+    position: relative;
+    overflow: auto;
+    max-height: 300px;
+}
+
+.table-responsive::-webkit-scrollbar {
+    width: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #eeeeee; 
+    border-radius: 60px;
+}
+   
+  /* Handle */
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #8ddae7; 
+    border-radius: 60px;
+}
+  
+  /* Handle on hover */
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #69bdcc; 
 }
 
 .table-head > tr > th{
@@ -39,6 +66,19 @@
 .table-head th span {
     color: #e1e1e1;
     margin-top: -4px;
+}
+
+.table-body >tr > td {
+    background-color: transparent;
+    border: none;
+}
+
+.table-body > tr > td:last-child > .delete {
+    float: right;
+}
+
+.table-body{
+    
 }
 
 /* school  */
@@ -211,19 +251,101 @@ form .info-box-users .info-down .tb-btn-search a {
 
 .registration-date {
     float: right;
-    margin-right: 2%;
+    margin-right: 6%;
 }
 
 .card-form .form-video {
     min-width: 100%;
     background-color: #f0f0f0;
     border-radius: 30px;
+    margin-bottom: 30px;
+}
+
+form .form-add-video {
+    min-width: 100%;
 }
 
 form .form-add-video .info-box-video {
-    margin: 44px;
+    margin: 23px;
 }
 
 form .form-add-video .info-box-video .add-video {
+    margin-right: 60px;
+    width: 48%;
+}
 
+form .form-add-video .info-box-video .add-video .file-name {
+    margin-top: 43px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: none;
+}
+
+form .form-add-video .info-box-video .add-video > * {
+    margin-right: 35px;
+}
+
+form .form-add-video .info-box-video .add-video label{
+    margin-top: 10px;
+    padding-top: 8px;
+}
+
+.info-file {
+    min-width: 200px;
+}
+
+input#video {
+    display: none;
+}
+
+input#video + label {
+    background-color: #07c5d3;
+    border-radius: 30px;
+    padding: 8px;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+}
+
+form .form-add-video .info-box-video .mass-registration {
+    width: 50%;
+    justify-content: space-between;
+    padding: 20px;
+}
+/* 
+form .form-add-video .info-box-video .mass-registration .info-regist {
+    margin: 20px 0px;
+} */
+
+form .form-add-video .info-box-video .mass-registration .info-regist .publishing-settings {
+    margin-bottom: 20px;
+}
+
+form .form-add-video .info-box-video .mass-registration .info-regist .publishing-settings select, form .form-add-video .info-box-video .mass-registration .info-regist .person-in-charge select {
+    background: transparent;
+    width: 168px;
+    padding: 5px;
+    border: 0;
+    border-radius: 30px;
+    -moz-appearance: none; 
+    -webkit-appearance: none; 
+    appearance: none;
+    color: #ff0404;
+    background: url(/backend/images/icons/多角形26.png) no-repeat #fff;
+    background-position: 20px 7px;
+    margin-left: 15px;
+}
+
+form .form-add-video .info-box-video .mass-registration .regist {
+    width: 28%;
+    background: #fc9025;
+    margin: 5px 0;
+    border-radius: 30px;;
+
+}
+
+form .form-add-video .info-box-video .mass-registration .regist a {
+    color: #fff;
+    margin: 0 auto;
 }

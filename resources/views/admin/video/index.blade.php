@@ -1,29 +1,29 @@
 @extends('layouts.master')
 @section('head')
-        <link rel="stylesheet" type="text/css" href="/backend/app-assets/vendors/css/tables/datatable/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="/backend/app-assets/vendors/css/tables/datatable/datatables.min.css">
 @endsection
 @section('content')
     <!-- Breadcrumb -->
     <div class="content-header-left col-md-6 col-12">
         <div class="row breadcrumbs-top">
             <div class="breadcrumb-wrapper col-12">
-{{--                {{ Breadcrumbs::render('nk-categories.index') }}--}}
+                {{--                {{ Breadcrumbs::render('nk-categories.index') }} --}}
             </div>
         </div>
     </div>
-    @if(Session::has('success'))
+    @if (Session::has('success'))
         <div class="alert bg-success alert-dismissible mb-2" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
-            {{Session::get('success')}}
+            {{ Session::get('success') }}
         </div>
     @elseif(Session::has('error'))
         <div class="alert bg-danger alert-dismissible mb-2" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
             </button>
-            {{Session::get('error')}}
+            {{ Session::get('error') }}
         </div>
     @endif
     <div class="content-body">
@@ -33,61 +33,62 @@
                     <div class="card-header">
                         <h5 class="card-position">d動画ライブラリー管理　〉３６０°動画</h5>
                         <h2 class="card-title">３６０°動画</h2>
-                        <div class="heading-elements">
-                            <ul class="list-inline mb-0">
-{{--                                <li><a href="{{route('nk-categories.index')}}"><i class="fa fa-refresh"></i></a>--}}
-{{--                                </li>--}}
-{{--                            @if(Auth::user()->checkPermissionSuperAdmin(\App\Constants\CmsActionsSetting::SETTING_CATEGORY_NK_PRODUCT_INDEX))--}}
-{{--                                <li><a href="{{route('nk-categories.create')}}"><i class="fa fa-plus"></i></a></li>--}}
-{{--                            @endif--}}
-                            </ul>
-                        </div>
+                        {{-- <div class="heading-elements"> --}}
+                            {{-- <ul class="list-inline mb-0"> --}}
+                                {{--                                <li><a href="{{route('nk-categories.index')}}"><i class="fa fa-refresh"></i></a> --}}
+                                {{--                                </li> --}}
+                                {{--                            @if (Auth::user()->checkPermissionSuperAdmin(\App\Constants\CmsActionsSetting::SETTING_CATEGORY_NK_PRODUCT_INDEX)) --}}
+                                {{--                                <li><a href="{{route('nk-categories.create')}}"><i class="fa fa-plus"></i></a></li> --}}
+                                {{--                            @endif --}}
+                            {{-- </ul> --}}
+                        {{-- </div> --}}
                     </div>
                     <div class="card-content">
                         <div class="registration-date">
                             登録日2022 / 10 / 22
                         </div>
                         <div class="card-body">
+
                             <div class="card-form">
-                            <form id="formVideo" class="form-video" action="" method="GET">
-                                {{-- <div class="row"> --}}
+
+                                <form id="formVideo" class="form-video" action="" method="GET">
                                     <div class="col-xl-2 col-lg-6 col-md-12 mb-1 form-add-video">
                                         <fieldset class="form-group info-box-video d-flex">
                                             <div class="add-video d-flex">
-                                                <label for="">動画</label>
+                                                <label for="">動&nbsp;&nbsp;画</label>
                                                 <div class="info-file">
                                                     <input type="file" name="video" id="video">
-                                                    <div class="file-name">kanjyo_01.mp4</div>
+                                                    <label for="video">ファイルを選択</label>
+                                                    <div class="file-name" id="file-name"></div>
                                                 </div>
-                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl49bpqTz1cRRmmZQcTG-SCslH-7I_Tigyjg&usqp=CAU" alt="" height="100px" width="120px">
+                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl49bpqTz1cRRmmZQcTG-SCslH-7I_Tigyjg&usqp=CAU" alt="" height="130px" width="200px">
                                             </div>
-                                            <div class="mass-registration">
+                                            <div class="mass-registration d-flex">
                                                 <div class="info-regist">
                                                     <div class="publishing-settings">
                                                         <label for="">公開設定</label>
                                                         <select name="regime" id="">
-                                                            <option value="">非公開</option>
+                                                            <option value="" class="text-center">非公開</option>
                                                         </select>
                                                     </div>
                                                     <div class="person-in-charge">
                                                         <label for="">担当者名</label>
                                                         <select name="name-person-in-charge" id="">
-                                                            
+                                                            <option value="" class="text-center"></option>
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="regist">
+                                                <div class="regist d-flex align-items-center">
                                                     <a href="" class="btn btn-regist">一括登録</a>
                                                 </div>
                                             </div>
                                         </fieldset>
-                                    </div>      
-                                {{-- </div> --}}
-                            </form>
-                            
-                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
                             <div id="gird">
-                                @include('admin.users.grid')
+                                @include('admin.video.grid')
                             </div>
                         </div>
                     </div>
@@ -97,7 +98,8 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
             <div class="modal-content" id="modal-body">
                 <img src="" class="w-100" alt="" title="" />
@@ -109,6 +111,20 @@
 @endsection
 @section('scripts')
     <script>
+        $(document).ready(function() {
+        let inputFile = document.getElementById('video');
+        let fileNameField = document.getElementById('file-name');
+            $(document).on('change', function(event) {
+                let uploadFileName = event.target.files[0].name;
+                fileNameField.textContent = uploadFileName;
+            })
+        })
+        // let inputFile = document.getElementById('video');
+        // let fileNameField = document.getElementById('file-name');
+        // inputFile.addEventListener('change', function(event) {
+        //     let uploadFileName = event.target.files[0].name;
+        //     fileNameField.textContent = uploadFileName;
+        // }) 
         // $(document).ready(function () {
         //     let page = 1;
         //     $(document).on('click', '.pagination a', function (e) {
