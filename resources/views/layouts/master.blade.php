@@ -38,10 +38,7 @@
 		</div>
 	</div>
 
-	<!-- Footer -->
-	<footer class="footer footer-static footer-light navbar-border">
-		@include('layouts.footer')
-	</footer>
+	
 
 	@include('layouts.scripts')
 	@yield('scripts')

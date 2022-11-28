@@ -9,27 +9,27 @@
     </style>
     {{-- @php  @endphp --}}
 {{--    @if (@count($data))--}}
-       <div class="table-responsive">
-           <table class="table table-bordered">
-               <thead class="table-head">
-               <tr>
-                   <th class="text-center" style="width: 8%;">
-                        No.
-                        <span style="float: right;">
-                            <i class="fa fa-sort-desc" aria-hidden="true"></i>
-                        </span>
-                    </th>
-                    
-                   <th style="width: 45%;">学校名<span style="float: right;"><i class="fa fa-sort-desc" aria-hidden="true"></i></span></th>
-                   <th style="width: 20%;">登録数<span style="float: right;"><i class="fa fa-sort-desc" aria-hidden="true"></i></span></th>
-                   <th style="width: 20%;">登録日</th>
-                   <th class="text-center" style="width: 5%;">編集</th>
-                   <th class="text-center" style="width: 5%;">削除</th>
-               </tr>
-               </thead>
-{{--                <tbody>--}}
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="table-head">
+                    <tr>
+                        <th class="text-center" style="width: 8%;">
+                            No.
+                            <span class="sort" style="float: right;">
+                                <i  class="fa fa-sort-desc" aria-hidden="true"></i>
+                            </span>
+                        </th>
+                        
+                        <th style="width: 45%;">学校名<span class="sort" style="float: right;"><i class="fa fa-sort-desc" aria-hidden="true"></i></span></th>
+                        <th style="width: 20%;">登録数<span class="sort" style="float: right;"><i class="fa fa-sort-desc" aria-hidden="true"></i></span></th>
+                        <th style="width: 20%;">登録日</th>
+                        <th class="text-center" style="width: 5%;">編集</th>
+                        <th class="text-center" style="width: 5%;">削除</th>
+                    </tr>
+                </thead>
+                {{-- <tbody> --}}
 {{--                @foreach ($data as $key=>$row)--}}
-{{--                    <tr>--}}
+                    {{-- <tr> --}}
 {{--                        <th class="text-center" scope="row">{{($data->currentPage()-1)*$data->perPage()+$key+1}}--}}
 {{--                        <td>{{$row->name}}</td>--}}
 {{--                        <td class="image-category">--}}

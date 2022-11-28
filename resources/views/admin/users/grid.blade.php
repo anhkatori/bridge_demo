@@ -15,12 +15,12 @@
                <tr>
                    <th class="text-center" style="width: 8%;">
                         氏名
-                        <span style="float: right;">
+                        <span class="sort" style="float: right;">
                             <i class="fa fa-sort-desc" aria-hidden="true"></i>
                         </span>
                     </th>
                     
-                   <th>ID<span style="float: right;"><i class="fa fa-sort-desc" aria-hidden="true"></i></span></th>
+                   <th>ID<span class="sort" style="float: right;"><i class="fa fa-sort-desc" aria-hidden="true"></i></span></th>
                    <th>学校名</th>
                    <th>年度</th>
                    <th>所属 </th>

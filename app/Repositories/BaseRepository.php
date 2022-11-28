@@ -6,14 +6,17 @@ use App\Exceptions\BadRequestException;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 
-abstract class BaseRepository implements RepositoryInterface
+class BaseRepository implements RepositoryInterface
 {
     /**
      * model property on class instances
      */
     protected $model;
-    protected $msgNotFound = 'Not Found';
+    // protected $msgNotFound = 'Not Found';
 
     /**
      * Constructor to bind model to repo
@@ -307,5 +310,32 @@ abstract class BaseRepository implements RepositoryInterface
     public function getPaginationByCond(array $condition = null, $with = [], $perPage = 10)
     {
         return $this->model->with($with)->where($condition)->paginate($perPage);
+    }
+            /**
+     * @param $result
+     * @param string $message
+     * @param int $code
+     * @return JsonResponse
+     */
+    public function sendResponse($result, $message = 'success', $code = Response::HTTP_OK): JsonResponse
+    {
+        return response()->json([
+            'code' => $code,
+            'message' => $message,
+            'data' => $result,
+        ], $code);
+    }
+
+    /**
+     * @param string $message
+     * @param int $code
+     * @return JsonResponse
+     */
+    public function sendError($message = 'error', $code = Response::HTTP_BAD_REQUEST): JsonResponse
+    {
+        return response()->json([
+            'code' => $code,
+            'message' => $message,
+        ], $code);
     }
 }

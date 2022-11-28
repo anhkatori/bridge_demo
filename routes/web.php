@@ -13,18 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.demo-page.index');
-});
+Route::any('/login', [App\Http\Controllers\Auth\AuthController::class, 'showLogin'])->name('login');
+Route::post('/doLogin', [App\Http\Controllers\Auth\AuthController::class, 'doLogin']);
+Route::get('/logout', [App\Http\Controllers\Auth\AuthController::class, 'logout']);
 
-Route::group(['prefix' => 'schools'], function() {
-    Route::get('/', [\App\Http\Controllers\SchoolManageController::class, 'index']);
-});
+Route::group(['middleware' => 'auth' ], function () {
+    Route::group(['prefix' => 'schools'], function() {
+        Route::get('/', [\App\Http\Controllers\SchoolManageController::class, 'index']);
+    });
 
-Route::group(['prefix' => 'users'], function() {
-    Route::get('/', [\App\Http\Controllers\UserController::class, 'index']);
-});
+    Route::group(['prefix' => 'users'], function() {
+        Route::get('/', [\App\Http\Controllers\UserController::class, 'index']);
+    });
 
-Route::group(['prefix' => 'videos'], function() {
-    Route::get('/', [App\Http\Controllers\VideoManageController::class, 'index']);
+    Route::group(['prefix' => 'vrs'], function() {
+        Route::get('/', [App\Http\Controllers\VRManageController::class, 'index']);
+    });
 });

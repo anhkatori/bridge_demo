@@ -45,9 +45,10 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <div class="card-form">
+                            {{-- <div class="card-form"> --}}
+                                <div class="row justify-content-between">
                             <form id="formSearch" class="form-search" action="" method="GET">
-                                <div class="row">
+                                
 
                                     <div class="col-xl-2 col-lg-6 col-md-12 mb-1 form-search-users">
                                         <fieldset class="form-group info-box-users">
@@ -76,9 +77,9 @@
                                             </div>
                                         </fieldset>
                                     </div>      
-                                </div>
+                                
                             </form>
-                            <div class="form-add d-flex">
+                            <div class="col-xl-2 col-lg-6 col-md-12 mb-1 d-flex form-add justify-content-end">
                                 <form action="" id="add-multiple" method="post" class="mt-auto">
                                     <a href="javascript:void(0)" id="btnAddMultiple" class="btn btn-add-multiple">一括登録</a>
                                 </form>
@@ -87,6 +88,7 @@
                                 </form>
                             </div>
                         </div>
+                        {{-- </div> --}}
                             <div id="gird">
                                 @include('admin.users.grid')
                             </div>

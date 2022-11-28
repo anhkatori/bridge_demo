@@ -8,7 +8,6 @@ use Illuminate\Http\Response;
 
 class BaseController extends Controller
 {
-    use ApiRequest;
     protected $urlGameService;
 
     public function __construct()
@@ -43,8 +42,4 @@ class BaseController extends Controller
             'message' => $message,
         ], $code);
     }
-
-
-
-
 }

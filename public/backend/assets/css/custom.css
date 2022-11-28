@@ -66,6 +66,7 @@
 .table-head th span {
     color: #e1e1e1;
     margin-top: -4px;
+    cursor: pointer;
 }
 
 .table-body >tr > td {
@@ -77,8 +78,25 @@
     float: right;
 }
 
-.table-body{
-    
+/* nav-bar  */
+.header-navbar {
+    background-color: #07c5d3;
+}
+
+.header-navbar .navbar-wrapper .logout {
+    padding: 22px 20px;
+}
+
+.header-navbar .navbar-wrapper .btn-logout {
+    border: none;
+    border-radius: 20px;
+    width: 80px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.header-navbar .navbar-wrapper .btn-logout:focus {
+    outline: 0;
 }
 
 /* school  */
@@ -107,23 +125,19 @@ form .form-search-school .form-group {
 
 form .form-search-school .form-group a {
     border-radius: 20px;
-    width: 35%;
+    width: 80px;
     margin-left: -7px;
     background-color: #07c5d3;
     color: #fff;
 }
-
 
 .form-control:focus {
     border-color: #ccd6e6;
 }
 
 #no {
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
-    border-bottom-right-radius: 0px;
-    border-top-right-radius: 0px;
-    width: 28%;
+    border-radius: 20px 0 0 20px;
+    width: 38%;
     border: none;
 }
 
@@ -135,10 +149,7 @@ form .form-search-school .form-group a {
 
 #number_of_registrations {
     border: none;
-    border-bottom-left-radius: 0px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 0 20px 0 20px;
 }
 
 #search {
@@ -163,11 +174,6 @@ form .form-search-school .form-group a {
 }
 
 /* users */
-
-.card-form {
-    display: flex;
-    justify-content: space-between;
-}
 
 form .form-search-users {
     min-width: 100%;
@@ -225,17 +231,24 @@ form .info-box-users .info-down .tb-btn-search a {
     padding: 10px 30px;
 }
 
-.form-add {
-    width: 25%;
-    margin-bottom: 56px;
+form .info-box-users .info-down .tb-btn-search a:hover {
+    background-color: #30bcc6;
 }
 
-.form-add form a {
+.form-add form {
+    margin-bottom: 2rem;
+}
+
+.form-add #add-multiple a {
     background-color: #07c5d3;
     border-color: #07c5d3;
     border-radius: 30px;
     color: #fff;
-    padding: 10px 35px;
+    padding: 10px 45px;
+}
+
+.form-add #add-multiple a:hover {
+    background-color: #30bcc6;
 }
 
 .form-add #add-single {
@@ -245,36 +258,43 @@ form .info-box-users .info-down .tb-btn-search a {
 .form-add #add-single a {
     background-color: #fc9025;
     border-color: #fc9025;
+    border-radius: 30px;
+    color: #fff;
+    padding: 10px 45px;
 }
 
-/* videos  */
+.form-add #add-single a:hover {
+    background-color: #dd7d1d;
+}
+
+/* vrs  */
 
 .registration-date {
     float: right;
-    margin-right: 6%;
+    margin-right: 7%;
 }
 
-.card-form .form-video {
-    min-width: 100%;
+.card-form .form-vr {
+    min-width: 98%;
     background-color: #f0f0f0;
     border-radius: 30px;
     margin-bottom: 30px;
 }
 
-form .form-add-video {
+form .form-add-vr {
     min-width: 100%;
 }
 
-form .form-add-video .info-box-video {
+form .form-add-vr .info-box-vr {
     margin: 23px;
 }
 
-form .form-add-video .info-box-video .add-video {
+form .form-add-vr .info-box-vr .add-vr {
     margin-right: 60px;
     width: 48%;
 }
 
-form .form-add-video .info-box-video .add-video .file-name {
+form .form-add-vr .info-box-vr .add-vr .file-name {
     margin-top: 43px;
     white-space: nowrap;
     overflow: hidden;
@@ -282,11 +302,11 @@ form .form-add-video .info-box-video .add-video .file-name {
     text-transform: none;
 }
 
-form .form-add-video .info-box-video .add-video > * {
+form .form-add-vr .info-box-vr .add-vr > * {
     margin-right: 35px;
 }
 
-form .form-add-video .info-box-video .add-video label{
+form .form-add-vr .info-box-vr .add-vr label{
     margin-top: 10px;
     padding-top: 8px;
 }
@@ -295,11 +315,11 @@ form .form-add-video .info-box-video .add-video label{
     min-width: 200px;
 }
 
-input#video {
+input#vr {
     display: none;
 }
 
-input#video + label {
+input#vr + label {
     background-color: #07c5d3;
     border-radius: 30px;
     padding: 8px;
@@ -308,21 +328,21 @@ input#video + label {
     text-align: center;
 }
 
-form .form-add-video .info-box-video .mass-registration {
+form .form-add-vr .info-box-vr .mass-registration {
     width: 50%;
     justify-content: space-between;
     padding: 20px;
 }
 /* 
-form .form-add-video .info-box-video .mass-registration .info-regist {
+form .form-add-vr .info-box-vr .mass-registration .info-regist {
     margin: 20px 0px;
 } */
 
-form .form-add-video .info-box-video .mass-registration .info-regist .publishing-settings {
+form .form-add-vr .info-box-vr .mass-registration .info-regist .publishing-settings {
     margin-bottom: 20px;
 }
 
-form .form-add-video .info-box-video .mass-registration .info-regist .publishing-settings select, form .form-add-video .info-box-video .mass-registration .info-regist .person-in-charge select {
+form .form-add-vr .info-box-vr .mass-registration .info-regist .publishing-settings select, form .form-add-vr .info-box-vr .mass-registration .info-regist .person-in-charge select {
     background: transparent;
     width: 168px;
     padding: 5px;
@@ -337,15 +357,21 @@ form .form-add-video .info-box-video .mass-registration .info-regist .publishing
     margin-left: 15px;
 }
 
-form .form-add-video .info-box-video .mass-registration .regist {
-    width: 28%;
+form .form-add-vr .info-box-vr .mass-registration .info-regist select:focus {
+    outline: 0;
+}
+
+form .form-add-vr .info-box-vr .mass-registration .regist {
+    width: 130px;
     background: #fc9025;
     margin: 5px 0;
-    border-radius: 30px;;
+    padding: 30px;
+    border-radius: 30px;
+    color: #fff;
 
 }
 
-form .form-add-video .info-box-video .mass-registration .regist a {
+form .form-add-vr .info-box-vr .mass-registration .regist a {
     color: #fff;
     margin: 0 auto;
 }

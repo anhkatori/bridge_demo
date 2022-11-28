@@ -15,13 +15,13 @@
                <tr>
                    <th class="text-center" style="width: 8%;">
                         No.
-                        <span style="float: right;">
+                        <span class="sort" style="float: right;">
                             <i class="fa fa-sort-desc" aria-hidden="true"></i>
                         </span>
                     </th>
                     
-                   <th style="width: 45%;">学校名<span style="float: right;"><i class="fa fa-sort-desc" aria-hidden="true"></i></span></th>
-                   <th style="width: 20%;">登録数<span style="float: right;"><i class="fa fa-sort-desc" aria-hidden="true"></i></span></th>
+                   <th style="width: 45%;">学校名<span class="sort" style="float: right;"><i class="fa fa-sort-desc" aria-hidden="true"></i></span></th>
+                   <th style="width: 20%;">登録数<span class="sort" style="float: right;"><i class="fa fa-sort-desc" aria-hidden="true"></i></span></th>
                    <th style="width: 20%;">登録日</th>
                    <th class="text-center" style="width: 5%;">編集</th>
                    <th class="text-center" style="width: 5%;">削除</th>
