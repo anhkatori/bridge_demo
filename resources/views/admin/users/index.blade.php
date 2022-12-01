@@ -33,15 +33,7 @@
                     <div class="card-header">
                         <h5 class="card-position">ユーザー登録　〉ユーザー一覧</h5>
                         <h2 class="card-title">ユーザー一覧</h2>
-                        <div class="heading-elements">
-                            <ul class="list-inline mb-0">
-{{--                                <li><a href="{{route('nk-categories.index')}}"><i class="fa fa-refresh"></i></a>--}}
-{{--                                </li>--}}
-{{--                            @if(Auth::user()->checkPermissionSuperAdmin(\App\Constants\CmsActionsSetting::SETTING_CATEGORY_NK_PRODUCT_INDEX))--}}
-{{--                                <li><a href="{{route('nk-categories.create')}}"><i class="fa fa-plus"></i></a></li>--}}
-{{--                            @endif--}}
-                            </ul>
-                        </div>
+                        
                     </div>
                     <div class="card-content">
                         <div class="card-body">
@@ -81,7 +73,8 @@
                             </form>
                             <div class="col-xl-2 col-lg-6 col-md-12 mb-1 d-flex form-add justify-content-end">
                                 <form action="" id="add-multiple" method="post" class="mt-auto">
-                                    <a href="javascript:void(0)" id="btnAddMultiple" class="btn btn-add-multiple">一括登録</a>
+                                    <input type="file" name="add_multiple" id="btnAddMultiple" class="btn btn-add-multiple">
+                                    <label for="btnAddMultiple" id="add-multiple-name" class="btn">一括登録</label>
                                 </form>
                                 <form action="" id="add-single" method="post" class="mt-auto">
                                     <a href="javascript:void(0)" id="btnAddSingle" class="btn btn-add-single">個別登録</a>
@@ -112,6 +105,14 @@
 @endsection
 @section('scripts')
     <script>
+        $(document).ready(function() {
+        let inputFile = document.getElementById('btnAddMultiple');
+        let fileNameField = document.getElementById('add-multiple-name');
+            $(document).on('change', function(event) {
+                let uploadFileName = event.target.files[0].name;
+                fileNameField.textContent = uploadFileName;
+            })
+        })
         // $(document).ready(function () {
         //     let page = 1;
         //     $(document).on('click', '.pagination a', function (e) {

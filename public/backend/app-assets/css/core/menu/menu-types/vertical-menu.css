@@ -44,7 +44,7 @@ body.vertical-layout.vertical-menu.menu-expanded .main-menu {
     position: absolute;
     right: 20px; }
   body.vertical-layout.vertical-menu.menu-expanded .main-menu .navigation li.has-sub > a:not(.mm-next):after {
-    content: "\f105";
+    /* content: "\f105"; */
     font-family: 'FontAwesome';
     font-size: 1rem;
     display: inline-block;

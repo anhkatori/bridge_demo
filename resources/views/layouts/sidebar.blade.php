@@ -6,20 +6,31 @@
             <li class="navigation" id="navigation">
                 <ul class="menu" id='menu-sidebar'>
                     <li class="{{  \Request::segment(1) == 'schools' ? 'active' : ''  }}">
-                        <a href="{{ url('/schools') }}">
+                        <a href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="88.94 159 22.355 25.47">
                                 <path d="M108.061 159H92.175a3.235 3.235 0 0 0-3.235 3.234v19.001a3.235 3.235 0 0 0 3.235 3.235h15.886a3.235 3.235 0 0 0 3.235-3.235v-19A3.235 3.235 0 0 0 108.06 159Zm-1.055 19.343c0 .662-.536 1.193-1.192 1.193H94.422a1.192 1.192 0 1 1 0-2.384h11.392a1.188 1.188 0 0 1 1.192 1.191Zm0-6.577c0 .662-.536 1.192-1.192 1.192H94.422a1.192 1.192 0 1 1 0-2.384h11.392c.656 0 1.192.53 1.192 1.192Zm0-6.577c0 .662-.536 1.192-1.192 1.192H94.422a1.192 1.192 0 1 1 0-2.384h11.392c.656 0 1.192.53 1.192 1.192Z" data-name="manage"/>
                             </svg>&nbsp;学校マスタ管理
                         </a>
+                        <ul class="dropdown-content position-absolute">
+                            <li class="{{  \Request::segment(1) == 'schools' && \Request::segment(2) == '' ? 'active' : ''  }}"><a href="{{ url('schools') }}">学校管理</a></li>
+                            <li class="{{  \Request::segment(2) == 'add' ? 'active' : ''  }}"><a href="{{ url('schools/add') }}">新規登録</a></li>
+                            <li class="{{  \Request::segment(1) == 'group' ? 'active' : ''  }}"><a href="">団体マスタ登録</a></li>
+                            <li class="{{  \Request::segment(1) == 'group' && \Request::segment(2) == 'add' ? 'active' : ''  }}"><a href="">団体管理</a></li>    
+                        </ul>
                     </li>
-                    <li class="{{ \Request::segment(2) == 'Dashboard' ? 'active' : '' }}">
-                        <a href="{{ url('admin/Dashboard') }}">
+                    <li class="{{ \Request::segment(1) == 'admin' ? 'active' : '' }}">
+                        <a href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14px" height="14px" viewBox="0 0 14 16" version="1.1">
                                 <g id="surface1">
                                     <path style=" stroke:none;fill-rule:evenodd;" d="M 12.144531 0 L 2.054688 0 C 0.921875 0 0 0.921875 0 2.054688 L 0 14.121094 C 0 15.253906 0.921875 16.175781 2.054688 16.175781 L 12.144531 16.175781 C 13.277344 16.175781 14.195312 15.253906 14.195312 14.121094 L 14.195312 2.054688 C 14.195312 0.921875 13.277344 0 12.144531 0 Z M 2.480469 13.125 L 3.140625 10.320312 L 5.285156 12.464844 Z M 12.183594 5.625 L 6.207031 11.601562 L 4.03125 9.425781 L 10.007812 3.453125 C 10.335938 3.128906 10.867188 3.128906 11.195312 3.453125 L 12.183594 4.441406 C 12.507812 4.769531 12.507812 5.296875 12.183594 5.625 Z M 12.183594 5.625 "/>
                                 </g>
                             </svg>&nbsp;管理者登録
                         </a>
+                        <ul class="dropdown-content position-absolute">
+                            <li class="{{  \Request::segment(1) == 'admin' && \Request::segment(2) == '' ? 'active' : ''  }}"><a href="{{ url('admin') }}">学校管理</a></li>
+                            <li class="{{  \Request::segment(1) == 'admin' && \Request::segment(2) == 'add' ? 'active' : ''  }}"><a href="{{ url('admin/add') }}">新規登録</a></li>
+   
+                        </ul>
                     </li>
                     <li class="{{ \Request::segment(1) == 'users' ? 'active' : '' }}">
                         <a href="{{ url('users') }}">
@@ -36,11 +47,12 @@
                                 <path d="M108.294 363.407H93.548a3.003 3.003 0 0 0-3.002 3.002v17.637a3.003 3.003 0 0 0 3.002 3.002h14.746a3.003 3.003 0 0 0 3.002-3.002v-17.637a3.003 3.003 0 0 0-3.002-3.002ZM96.75 379.805l-2.208 2.42a.473.473 0 0 1-.344.153c-.016 0-.031 0-.047-.005a.459.459 0 0 1-.35-.228l-.91-1.578a.467.467 0 0 1 .169-.635.467.467 0 0 1 .635.17l.593 1.032 1.785-1.954a.467.467 0 0 1 .656-.032.467.467 0 0 1 .021.657Zm0-5.814-2.208 2.42a.473.473 0 0 1-.344.153c-.016 0-.031 0-.047-.005a.459.459 0 0 1-.35-.228l-.91-1.577a.467.467 0 0 1 .169-.636.467.467 0 0 1 .635.17l.588 1.032 1.784-1.954a.462.462 0 1 1 .683.625Zm0-5.808-2.208 2.42a.473.473 0 0 1-.344.153c-.016 0-.031 0-.047-.005a.459.459 0 0 1-.35-.228l-.91-1.578a.467.467 0 0 1 .169-.635.467.467 0 0 1 .635.17l.593 1.032 1.785-1.954a.467.467 0 0 1 .656-.032.467.467 0 0 1 .021.657Zm11.003 13.178c0 .615-.498 1.107-1.107 1.107h-7.132a1.106 1.106 0 1 1 0-2.213h7.132a1.103 1.103 0 0 1 1.107 1.106Zm0-6.104c0 .614-.498 1.106-1.107 1.106h-7.132a1.106 1.106 0 1 1 0-2.213h7.132c.61 0 1.107.492 1.107 1.107Zm0-6.105c0 .614-.498 1.106-1.107 1.106h-7.132a1.106 1.106 0 1 1 0-2.213h7.132c.61 0 1.107.493 1.107 1.107Z" fill-rule="evenodd" data-name="test_ctrl"/>
                             </svg>&nbsp;トレーニング管理管理
                         </a>
-                        <div class="dropdown-content position-absolute">
-                            <a href="#">画像・イラスト登録</a>
-                            <a href="#">２D動画登録</a>
-                            <a href="#">360°動画登録</a>
-                        </div>
+                        <ul class="dropdown-content position-absolute">
+                            <li><a href="#">画像・イラスト登録</a></li>
+                            <li><a href="#">２D動画登録</a></li>
+                            <li><a href="{{ url('vrs') }}">360°動画登録</a></li>
+                        </ul>
+                        
                     </li>
                     <li class="{{ \Request::segment(2) == 'outsource' ? 'active' : '' }}">
                         <a href="{{ url('admin/outsource') }}">

@@ -10,4 +10,8 @@ class SchoolManageController extends Controller
     public function index(){
         return view('admin.school.index');
     }
+
+    public function add() {
+        return view('admin.school.add');
+    }
 }

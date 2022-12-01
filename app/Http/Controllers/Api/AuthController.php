@@ -18,22 +18,35 @@ class AuthController extends Controller
 
     public function __construct(Account $account)
     {
-        $this->middleware('auth:api', ['except' => ['login', 'resetpassword', 'changepassword']]);
+        // $this->middleware('auth:api', ['except' => ['login', 'resetpassword', 'changepassword']]);
         $this->model = new BaseRepository($account);
         $this->accountRepository = new AccountRepository();
     }
 
     public function login(AuthRequest $request)
     {
-        $credentials = $request->only('email', 'password');
-        $token = Auth::attempt($credentials);
-        if (!$token) {
-            return $this->model->sendError("Email or password is incorrect");
+        try {
+            $loginData = $request->validate([
+                'email' => 'email|required',
+                'password' => 'required'
+            ]);
+
+            if (!Auth::attempt($loginData)) {
+                return $this->sendError('Unauthorized');
+            }
+
+            $accessToken = \auth()->user()->createToken('authToken')->plainTextToken;
+
+            return $this->sendResponse([
+                'user' => \auth()->user(),
+                'access_token' => $accessToken,
+                'token_type' => 'Bearer'
+            ]);
         }
-        $user = Account::where('email', $request->email)->first();
-        $data_user = $this->accountRepository->getData($user->id);
-        $data_user['token'] = $token;
-        return $this->model->sendResponse($data_user);
+        catch (\Exception $exception) {
+            return $this->sendError($exception->getMessage());
+        }
+
     }
 
     public function logout()

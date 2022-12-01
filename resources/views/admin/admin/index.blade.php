@@ -32,7 +32,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h5 class="card-position">学校マスタ管理　〉学校管理</h5>
-                        <h2 class="card-title">学校マスタ管理</h2>
+                        <h2 class="card-title">管理者一覧</h2>
                         <div class="heading-elements">
                             <ul class="list-inline mb-0">
 {{--                                <li><a href="{{route('nk-categories.index')}}"><i class="fa fa-refresh"></i></a>--}}
@@ -49,21 +49,20 @@
                             <form id="formRegist" class="" action="" method="GET">
                                 <div class="row">
                                     <div class="col-xl-2 col-lg-6 col-md-12 mb-1 form-detail-search">
-                                        <fieldset class="form-group">
+                                        <fieldset class="form-group">       
                                             <input type="text" class="form-control" id="no" placeholder="No.">
-                                            <input type="text" class="form-control" id="category" name="category" placeholder="学 科 名">
-                                            <input type="text" class="form-control" id="number_of_registrations" name="number_of_registrations" placeholder="登録数 ">
+                                            <input type="text" class="form-control" id="category" name="category" placeholder="団体名">
+                                            <input type="text" class="form-control" id="number_of_registrations" name="number_of_registrations" placeholder="管理者名 ">
                                         </fieldset>
                                     </div>
                                     <div class="tb-btn-regist">
                                         <a href="javascript:void(0)" id="btnRegist" class="btn btn-regist-school">検&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;索</a>
                                     </div>
                                     
-                                    
                                 </div>
                             </form>
                             <form action="" id="formSearch" method="post" style="width: 414px;">
-                                <div class="col-xl-2 col-lg-6 col-md-12 mb-1 d-flex form-search-name">
+                                <div class="col-xl-2 col-lg-6 col-md-12 mb-1 form-search-name">
                                     <fieldset class="form-group">
                                         <input type="text" class="form-control" id="search" name="search"placeholder="">
                                         <a href="javascript:void(0)" id="btnSearch" class="btn btn-search"><i class="fa fa-search"></i></a>
@@ -72,7 +71,7 @@
                             </form>
                             </div>
                             <div id="gird">
-                                @include('admin.school.grid')
+                                @include('admin.admin.grid')
                             </div>
                         </div>
                     </div>

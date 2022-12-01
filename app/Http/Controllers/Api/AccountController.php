@@ -19,7 +19,7 @@ class AccountController extends Controller
 
     public function __construct(Account $account)
     {
-        $this->middleware('auth:api');
+        // $this->middleware('auth:api');
         $this->model = new BaseRepository($account);
         $this->accountRepository = new AccountRepository();
     }

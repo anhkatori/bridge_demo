@@ -28,6 +28,7 @@
                </tr>
                </thead>
                <tbody class="table-body">
+                   <div class="table-body-content">
 {{--                @foreach ($data as $key=>$row)--}}
                    <tr>
                        <td class="text-center">1</td>
@@ -75,6 +76,7 @@
                      <a class="danger delete" data-id=""><i class="fa fa-trash-o"></i></a>
                     </td>
                 </tr>
+            </div>
 {{--                        <th class="text-center" scope="row">{{($data->currentPage()-1)*$data->perPage()+$key+1}}--}}
 {{--                        <td>{{$row->name}}</td>--}}
 {{--                        <td class="image-category">--}}

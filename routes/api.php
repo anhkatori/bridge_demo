@@ -51,7 +51,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/delete', 'App\Http\Controllers\Api\SchoolsController@destroy');
     });
     Route::group(['prefix' => 'user'], function () {
-        Route::get('/list', 'App\Http\Controllers\Api\AccountController@list');
+        Route::get('/profile', 'App\Http\Controllers\Api\AccountController@list');
         Route::post('/search', 'App\Http\Controllers\Api\AccountController@search');
         Route::post('/store', 'App\Http\Controllers\Api\AccountController@store');
         Route::post('/show', 'App\Http\Controllers\Api\AccountController@show');

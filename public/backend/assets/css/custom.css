@@ -1,4 +1,6 @@
-.card, .card-header, .card-content {
+.card,
+.card-header,
+.card-content {
     box-shadow: none;
     background-color: #fafafa;
     margin-bottom: 0;
@@ -15,16 +17,37 @@
     padding: 2rem 1.5rem;
 }
 
+.card .card-header .back {
+    padding: 10px 30px;
+    background: #ffffff;
+    border: none;
+    border-radius: 30px;
+    letter-spacing: 25px;
+} 
+
 .card .card-position {
     font-size: 10px;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     color: #3ea4ca;
 }
+
+/* table tbody {
+    display: block;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+table thead, table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+} */
 
 .table-responsive {
     position: relative;
     overflow: auto;
     max-height: 300px;
+    padding-right: 12px;
 }
 
 .table-responsive::-webkit-scrollbar {
@@ -32,22 +55,21 @@
 }
 
 .table-responsive::-webkit-scrollbar-track {
-    background: #eeeeee; 
+    background: #eeeeee;
     border-radius: 60px;
-}
-   
-  /* Handle */
-.table-responsive::-webkit-scrollbar-thumb {
-    background: #8ddae7; 
-    border-radius: 60px;
-}
-  
-  /* Handle on hover */
-.table-responsive::-webkit-scrollbar-thumb:hover {
-    background: #69bdcc; 
 }
 
-.table-head > tr > th{
+/* Handle */
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #8ddae7;
+    border-radius: 60px;
+}
+
+/* Handle on hover */
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #69bdcc;
+}
+.table-head > tr > th {
     color: #07c5d3;
     padding: 0.75rem;
     background-color: #fff;
@@ -59,7 +81,7 @@
     border-top-left-radius: 20px;
 }
 
-.table-head > tr > th:last-child {  
+.table-head > tr > th:last-child {
     border-top-right-radius: 20px;
 }
 
@@ -69,13 +91,10 @@
     cursor: pointer;
 }
 
-.table-body >tr > td {
+.table-body > tr > td {
     background-color: transparent;
     border: none;
-}
-
-.table-body > tr > td:last-child > .delete {
-    float: right;
+    padding: 0.75rem;
 }
 
 /* nav-bar  */
@@ -99,31 +118,31 @@
     outline: 0;
 }
 
-/* school  */
+/* school - admin */
 
-form .form-regist-school {
+form .form-detail-search {
     display: flex;
-    max-width: 100%;
+    max-width: 70%;
     padding-right: 24px;
 }
 
-form .form-regist-school .form-group {
+form .form-detail-search .form-group {
     display: flex;
     width: 634px;
 }
 
-form .form-search-school {
+form .form-search-name {
     display: flex;
     max-width: 100%;
     padding-right: 0;
 }
 
-form .form-search-school .form-group {
+form .form-search-name .form-group {
     display: flex;
     width: 100%;
 }
 
-form .form-search-school .form-group a {
+form .form-search-name .form-group a {
     border-radius: 20px;
     width: 80px;
     margin-left: -7px;
@@ -137,8 +156,9 @@ form .form-search-school .form-group a {
 
 #no {
     border-radius: 20px 0 0 20px;
-    width: 38%;
+    width: 47%;
     border: none;
+    padding: 0.75rem 30px;
 }
 
 #category {
@@ -149,7 +169,7 @@ form .form-search-school .form-group a {
 
 #number_of_registrations {
     border: none;
-    border-radius: 0 20px 0 20px;
+    border-radius: 0 20px 20px 0;
 }
 
 #search {
@@ -168,7 +188,8 @@ form .form-search-school .form-group a {
     padding: 12px 50px;
 }
 
-.btn-regist-school:hover, form .form-search-school .form-group a:hover {
+.btn-regist-school:hover,
+form .form-search-name .form-group a:hover {
     color: #fff;
     background-color: #30bcc6;
 }
@@ -198,7 +219,8 @@ form .info-box-users .info-down {
     margin: 0 0 18px 20px;
 }
 
-form .info-box-users .info-up label, form .info-box-users .info-down label {
+form .info-box-users .info-up label,
+form .info-box-users .info-down label {
     margin-right: 15px;
     width: 42px;
     align-items: center;
@@ -211,7 +233,8 @@ form .info-box-users .info-up label, form .info-box-users .info-down label {
     width: 70%;
 }
 
-form .info-box-users .info-up input, form .info-box-users .info-down input {
+form .info-box-users .info-up input,
+form .info-box-users .info-down input {
     width: 209px;
     border-radius: 30px;
 }
@@ -239,12 +262,25 @@ form .info-box-users .info-down .tb-btn-search a:hover {
     margin-bottom: 2rem;
 }
 
-.form-add #add-multiple a {
+input#btnAddMultiple {
+    display: none;
+}
+
+input#btnAddMultiple + label {
     background-color: #07c5d3;
     border-color: #07c5d3;
     border-radius: 30px;
     color: #fff;
-    padding: 10px 45px;
+    padding: 10px 20px;
+    width: 150px;
+    margin-bottom: 0;
+}
+
+.form-add form label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: none;
 }
 
 .form-add #add-multiple a:hover {
@@ -306,7 +342,7 @@ form .form-add-vr .info-box-vr .add-vr > * {
     margin-right: 35px;
 }
 
-form .form-add-vr .info-box-vr .add-vr label{
+form .form-add-vr .info-box-vr .add-vr label {
     margin-top: 10px;
     padding-top: 8px;
 }
@@ -338,18 +374,36 @@ form .form-add-vr .info-box-vr .mass-registration .info-regist {
     margin: 20px 0px;
 } */
 
-form .form-add-vr .info-box-vr .mass-registration .info-regist .publishing-settings {
+form
+    .form-add-vr
+    .info-box-vr
+    .mass-registration
+    .info-regist
+    .publishing-settings {
     margin-bottom: 20px;
 }
 
-form .form-add-vr .info-box-vr .mass-registration .info-regist .publishing-settings select, form .form-add-vr .info-box-vr .mass-registration .info-regist .person-in-charge select {
+form
+    .form-add-vr
+    .info-box-vr
+    .mass-registration
+    .info-regist
+    .publishing-settings
+    select,
+form
+    .form-add-vr
+    .info-box-vr
+    .mass-registration
+    .info-regist
+    .person-in-charge
+    select {
     background: transparent;
     width: 168px;
     padding: 5px;
     border: 0;
     border-radius: 30px;
-    -moz-appearance: none; 
-    -webkit-appearance: none; 
+    -moz-appearance: none;
+    -webkit-appearance: none;
     appearance: none;
     color: #ff0404;
     background: url(/backend/images/icons/多角形26.png) no-repeat #fff;
@@ -368,10 +422,55 @@ form .form-add-vr .info-box-vr .mass-registration .regist {
     padding: 30px;
     border-radius: 30px;
     color: #fff;
-
 }
 
 form .form-add-vr .info-box-vr .mass-registration .regist a {
     color: #fff;
     margin: 0 auto;
+}
+
+/* form regist  */
+
+.form-regist {
+    background: #f0f0f0;
+    max-width: 1024px;
+    border-radius: 30px;
+}
+
+.form-regist .box {
+    margin: 50px 33px;
+}
+
+.form-regist label {
+    width: 150px;
+    margin-bottom: 0;
+}
+
+.form-regist input {
+    margin-left: 68px;
+    width: 400px;
+    height: 40px;
+    border-radius: 30px;
+    border: none;
+    padding: 20px;
+}
+
+.form-regist .box:last-child input {
+    margin: 6px 68px;
+}
+
+.form-regist input:focus {
+    outline: 0;
+}
+
+.form-regist button {
+    width: 200px;
+    text-align: center;
+    height: 50px;
+    background-color: #07c5d3;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    letter-spacing: 15px;
+    margin-left: 40px;
 }
