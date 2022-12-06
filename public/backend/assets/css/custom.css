@@ -22,7 +22,7 @@
     background: #ffffff;
     border: none;
     border-radius: 30px;
-    letter-spacing: 25px;
+    color: #707070;
 } 
 
 .card .card-position {
@@ -154,33 +154,29 @@ form .form-search-name .form-group a {
     border-color: #ccd6e6;
 }
 
-#no {
+fieldset > input:first-child {
     border-radius: 20px 0 0 20px;
     width: 47%;
     border: none;
     padding: 0.75rem 30px;
 }
 
-#category {
+fieldset > input:nth-child(2) {
     border-radius: 0;
     border: none;
     width: 100%;
 }
 
-#number_of_registrations {
+fieldset > input:last-child {
     border: none;
     border-radius: 0 20px 20px 0;
 }
 
 #search {
-    border: none;
-    border-bottom-left-radius: 20px;
-    border-top-left-radius: 20px;
-    border-bottom-right-radius: 0px;
-    border-top-right-radius: 0px;
+    width: 316px;
 }
 
-.btn-regist-school {
+.btn-search-detail {
     background-color: #07c5d3;
     border-color: #07c5d3;
     border-radius: 30px;
@@ -188,7 +184,7 @@ form .form-search-name .form-group a {
     padding: 12px 50px;
 }
 
-.btn-regist-school:hover,
+.btn-search-detail:hover,
 form .form-search-name .form-group a:hover {
     color: #fff;
     background-color: #30bcc6;
@@ -237,6 +233,7 @@ form .info-box-users .info-up input,
 form .info-box-users .info-down input {
     width: 209px;
     border-radius: 30px;
+    border: none;
 }
 
 form .info-box-users .info-down .tb-btn-search {
@@ -287,11 +284,12 @@ input#btnAddMultiple + label {
     background-color: #30bcc6;
 }
 
-.form-add #add-single {
+.form-add .btn-add-single {
     margin-left: 20px;
+    margin-bottom: 2rem;
 }
 
-.form-add #add-single a {
+.form-add .btn-add-single {
     background-color: #fc9025;
     border-color: #fc9025;
     border-radius: 30px;
@@ -299,7 +297,7 @@ input#btnAddMultiple + label {
     padding: 10px 45px;
 }
 
-.form-add #add-single a:hover {
+.form-add .btn-add-single:hover {
     background-color: #dd7d1d;
 }
 
@@ -444,11 +442,13 @@ form .form-add-vr .info-box-vr .mass-registration .regist a {
 .form-regist label {
     width: 150px;
     margin-bottom: 0;
+    font-weight: bold;
+    color: #707070;
 }
 
 .form-regist input {
-    margin-left: 68px;
-    width: 400px;
+    margin-left: 30px;
+    width: 360px;
     height: 40px;
     border-radius: 30px;
     border: none;
@@ -456,7 +456,7 @@ form .form-add-vr .info-box-vr .mass-registration .regist a {
 }
 
 .form-regist .box:last-child input {
-    margin: 6px 68px;
+    margin: 6px 30px;
 }
 
 .form-regist input:focus {
@@ -471,6 +471,53 @@ form .form-add-vr .info-box-vr .mass-registration .regist a {
     color: #fff;
     border: none;
     border-radius: 30px;
-    letter-spacing: 15px;
     margin-left: 40px;
+    font-weight: bold;
+}
+
+form
+    .form-regist 
+    .box
+    select {
+    color: #707070;
+    width: 360px;
+    height: 40px;
+    padding: 10px 61px;
+    border: 0;
+    border-radius: 30px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: url(/backend/images/icons/多角形26.png) no-repeat #fff;
+    background-position: 20px 12px;
+    margin: 6px 30px;
+}
+
+form .form-regist .box select:focus {
+    outline: 0;
+}
+
+.school {
+    max-width: 1382px;
+}
+
+.school .box:last-child input {
+    margin: 6px 30px;
+}
+
+.school .box ol {
+    list-style: auto;
+    font-weight: bold;
+}
+
+.mt-le-1 {
+    margin-top: 0.7rem;
+}
+
+.form-add-users {
+    max-width: 1215px;
+}
+
+.form-add-users label {
+    width: 100px;
 }

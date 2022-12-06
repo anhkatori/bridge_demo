@@ -17,10 +17,15 @@ Route::any('login', [App\Http\Controllers\Auth\AuthController::class, 'showLogin
 Route::post('/doLogin', [App\Http\Controllers\Auth\AuthController::class, 'doLogin']);
 Route::get('/logout', [App\Http\Controllers\Auth\AuthController::class, 'logout']);
 
-Route::group(['middleware' => 'auth' ], function () {
+Route::group([ ], function () {
     Route::group(['prefix' => 'schools'], function() {
         Route::get('/', [\App\Http\Controllers\SchoolManageController::class, 'index']);
         Route::get('/add', [\App\Http\Controllers\SchoolManageController::class, 'add']);
+    });
+
+    Route::group(['prefix' => 'group'], function() {
+        Route::get('/', [\App\Http\Controllers\GroupController::class, 'index']);
+        Route::get('/add', [\App\Http\Controllers\GroupController::class, 'create']);
     });
 
     Route::group(['prefix' => 'admin'], function() {

@@ -8,9 +8,9 @@ use Carbon\Carbon;
 class AccountRepository
 {
     public function All(){
-        $data = Account::select('account.id' , 'account.full_name','account.email','account.role','classes.name as class','schools.name as school','school_year.name as school_year','account.check_first_login','account.status','account.usage_time','account.expired_at')
+        $data = Account::select('account.id' , 'account.full_name','account.email','account.role','classes.name as class','school.name as school','school_year.name as school_year','account.check_first_login','account.status','account.usage_time','account.expired_at')
         ->leftJoin('classes','account.class_id',"classes.id")
-        ->leftJoin('schools','account.school_id',"schools.id")
+        ->leftJoin('school','account.school_id',"school.id")
         ->leftJoin('school_year','account.school_year_id',"school_year.id");
         return $data;
     }

@@ -3,27 +3,28 @@
 
 <head>
     @include('layouts.head')
-	@yield('head')
+    @yield('head')
 </head>
 <style>
     html body {
-        height: max-content; 
-        
+        height: max-content;
+
     }
 
     #content {
         height: 100%;
         width: 100%;
     }
+
     .inside-block {
         /* background: #07c5d3; */
         /* padding: 10% 0; */
         margin: 10% auto;
         text-align: center;
         width: 650px;
-        
+
     }
-    
+
     .logo-box {
         width: 50%;
         padding: 120px 0;
@@ -49,16 +50,16 @@
         border-left: none;
 
     }
-    
+
     .login-box p {
         margin: 60px 0 40px;
     }
 
-    .login-box form > * {
+    .login-box form>* {
         margin-bottom: 30px;
     }
 
-    .login-box form > input {
+    .login-box form>input {
         border-radius: 30px;
         border: none;
         padding: 8px 20px;
@@ -79,12 +80,13 @@
         box-shadow: 3px 3px #69bdcc;
     }
 
-    .login-box form .login-submit:focus{
+    .login-box form .login-submit:focus {
         outline: 0
     }
 </style>
+
 <body>
-    
+
 
     <div class="login col-md-12" id="content">
         <div class="inside-block d-flex">
@@ -94,25 +96,26 @@
                 </div>
                 <div class="login-box">
                     <p class="title">ログイン</p>
-                    <form action="{{url('/doLogin')}}" method="post" class="d-flex flex-column">
+                    <form method="post" id="formLogin" class="d-flex flex-column">
                         @csrf
                         <div>
-                            @if(Session::has('success'))
+                            @if (Session::has('success'))
                                 <div class="alert alert-success text-center" style="margin: 10px">
-                                {{Session::get('success')}}
-                            </div>
+                                    {{ Session::get('success') }}
+                                </div>
                             @endif
-                            @if(Session::has('error') && !empty(Session::has('error')))
-    
+                            @if (Session::has('error') && !empty(Session::has('error')))
                                 <div class="alert alert-danger text-center" style="margin: 10px">
-                                {{Session::get('error')}}
-                            </div>
+                                    {{ Session::get('error') }}
+                                </div>
                             @endif
                         </div>
-    
-                        <input type="text" class="name" name="name" placeholder="メールアドレス" />
-                        <input type="password" class="password" name="password" placeholder="パスワード" />
-                        <button class="login-submit">ログイン</button>
+
+                        <input type="text" class="email" name="email" id="email" value=""
+                            placeholder="メールアドレス" />
+                        <input type="password" class="password" name="password" id="password" value=""
+                            placeholder="パスワード" />
+                        <button class="login-submit" id="login">ログイン</button>
                     </form>
                 </div>
             </div>
@@ -121,3 +124,33 @@
 </body>
 
 </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#login").click(function(event) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            var form = $('#formLogin');
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:8000/api/auth/login",
+                data: form.serialize(),
+                success: function(data) {
+                    console.log(data);
+                    if(data.message === "success") {
+                        window.location=data.data.url;
+                    }
+                    
+                },
+                error: function(data) {
+                    console.log(data.responseJSON);
+
+                }
+            })
+        })
+    });
+</script>

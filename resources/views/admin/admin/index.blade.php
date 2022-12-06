@@ -56,7 +56,7 @@
                                         </fieldset>
                                     </div>
                                     <div class="tb-btn-regist">
-                                        <a href="javascript:void(0)" id="btnRegist" class="btn btn-regist-school">検&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;索</a>
+                                        <a href="javascript:void(0)" id="btnRegist" class="btn btn-search-detail font-weight-bold">検&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;索</a>
                                     </div>
                                     
                                 </div>

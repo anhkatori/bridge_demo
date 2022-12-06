@@ -20,9 +20,10 @@
                         </span>
                     </th>
                     
-                   <th style="width: 20%">管理者名</th>
-                   <th style="width: 40%">学校・団体名<span class="sort" style="float: right;"><i class="fa fa-sort-desc" aria-hidden="true"></i></span></th>
-                   <th>登録日</th>
+                   <th style="width: 20%">団体名</th>
+                   <th style="width: 30%">種別</th>
+                   <th style="width: 20%">担当</th>
+                   <th style="width: 20%">登録人数</th>
                    <th class="text-center" style="width: 8%">編集</th>
                    <th class="text-center" style="width: 8%">削除</th>
                </tr>

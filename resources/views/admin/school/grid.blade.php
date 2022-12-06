@@ -22,7 +22,7 @@
                     
                    <th style="width: 10%">学校名</th>
                    <th style="width: 40%">学科名<span class="sort" style="float: right;"><i class="fa fa-sort-desc" aria-hidden="true"></i></span></th>
-                   <th>登録数<span class="sort" style="float: right;"><i class="fa fa-sort-desc" aria-hidden="true"></i></span></th>
+                   <th>生徒数<span class="sort" style="float: right;"><i class="fa fa-sort-desc" aria-hidden="true"></i></span></th>
                    <th>登録日</th>
                    <th class="text-center" style="width: 8%">編集</th>
                    <th class="text-center" style="width: 8%">削除</th>

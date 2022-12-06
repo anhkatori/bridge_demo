@@ -24,7 +24,7 @@
                                 aria-hidden="true"></i></span></th>
                     <th>学校名</th>
                     <th>年度</th>
-                    <th>所属 </th>
+                    <th>年齢</th>
                     <th>利用時間</th>
                     <th>登録日</th>
                     <th>有効期限</th>

@@ -2,28 +2,41 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Account;
+use App\Http\Controllers\BaseController;
+use App\Mail\ForgotPasswordMail;
+use App\Mail\MailCode;
+use App\Repositories\AccountRepository;
+use App\Repositories\PasswordResetRepository;
+use Carbon\Carbon;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Repositories\AccountRepository;
-use App\Http\Controllers\Controller;
-use App\Jobs\SendMailResetPasswordJob;
-use App\Http\Requests\AuthRequest;
-use App\Repositories\SendReponseRepository;
-use App\Repositories\BaseRepository;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
-class AuthController extends Controller
+class AuthController extends BaseController
 {
+    protected $accountRepository;
+    protected $passwordResetRepository;
 
-    public function __construct(Account $account)
+    public function __construct()
     {
-        // $this->middleware('auth:api', ['except' => ['login', 'resetpassword', 'changepassword']]);
-        $this->model = new BaseRepository($account);
         $this->accountRepository = new AccountRepository();
+        // $this->passwordResetRepository = new PasswordResetRepository();
     }
 
-    public function login(AuthRequest $request)
+    public function register(Request $request): JsonResponse
+    {
+        $data = $request->all();
+        $data['password'] = Hash::make($request['password']);
+        $user = $this->accountRepository->create($data);
+        return $this->sendResponse([
+            'user' => $user,
+        ]);
+    }
+
+    public function login(Request $request): JsonResponse
     {
         try {
             $loginData = $request->validate([
@@ -40,40 +53,108 @@ class AuthController extends Controller
             return $this->sendResponse([
                 'user' => \auth()->user(),
                 'access_token' => $accessToken,
-                'token_type' => 'Bearer'
+                'token_type' => 'Bearer',
+                'url' => url('/users')
             ]);
-        }
-        catch (\Exception $exception) {
+        } catch (\Exception $exception) {
             return $this->sendError($exception->getMessage());
         }
-
     }
 
-    public function logout()
+    public function me(): JsonResponse
     {
-        Auth::logout();
-        return $this->model->sendResponse("Logout");
+        return $this->sendResponse([
+            'user' => Auth::user()
+        ]);
     }
 
-    public function resetpassword(Request $request)
+    public function refresh(Request $request): JsonResponse
     {
-        $user = Account::select(['id', 'full_name', 'email'])->where(['email' => $request->email])->first();
-        if (!empty($user)) {
-            $code = rand(100000, 999999);
-            $mail = new SendMailResetPasswordJob($user->email, $user->full_name, $code);
-            dispatch($mail);
-            return $this->model->sendResponse($code);
-        } else {
-            return $this->model->sendError();
+        try {
+            $user = $request->user();
+            $user->tokens()->delete();
+            $accessToken = $user->createToken($user->name)->plainTextToken;
+            return $this->sendResponse([
+                'access_token' => $accessToken,
+                'token_type' => 'Bearer'
+            ]);
+        } catch (\Exception $exception) {
+            return $this->sendError($exception->getMessage());
         }
     }
-    public function changepassword(AuthRequest $request)
+
+    public function logout(): JsonResponse
     {
-        $update = Account::where('email', $request->email)->update(['password' => Hash::make($request->password)]);
-        if ($update) {
-            return $this->model->sendResponse("Password is changed");
-        } else {
-            return $this->model->sendError();
+        if (Auth::check()) {
+            $user = Auth::user()->tokens();
+            return $this->sendResponse($user->delete(), 'Success logout');
         }
+        return $this->sendError('Error');
     }
+
+    // public function forgotPassword(Request $request): JsonResponse
+    // {
+    //     try {
+    //         $request->validate([
+    //             'email' => 'required|email'
+    //         ]);
+    //         $email = $request['email'];
+    //         if ($this->accountRepository->getMail($email) == null) {
+    //             return $this->sendError('Email not exist!');
+    //         }
+    //         $passwordReset = $this->passwordResetRepository->updateOrCreate([
+    //             'email' => $email,
+    //             'token' => Str::random(60)
+    //         ]);
+    //         $mailData = [
+    //             'mail' => $email,
+    //             'token' => $passwordReset->token
+    //         ];
+    //         Mail::to($email)->send(new ForgotPasswordMail($mailData));
+    //         return $this->sendResponse('Success');
+    //     }
+    //     catch (\Exception $exception){
+    //         return $this->sendError($exception->getMessage());
+    //     }
+    // }
+
+    // public function sendMailCode(Request $request): JsonResponse
+    // {
+    //     try {
+    //         $mail = $request['mail'];
+    //         $code = rand(100000,999999);
+    //         Mail::to($mail)->send(new MailCode($code));
+    //         return $this->sendResponse('Success');
+    //     }
+    //     catch (\Exception $exception) {
+    //         return $this->sendError($exception->getMessage());
+    //     }
+    // }
+
+    // public function resetPassword(Request $request, $token): JsonResponse
+    // {
+    //     try {
+    //         $password = $request->password;
+    //         $passwordReset = $this->passwordResetRepository->findByCond([
+    //             'token' => $token
+    //         ]);
+    //         if (!$passwordReset) {
+    //             return $this->sendError('Token is invalid');
+    //         }
+    //         $checkTimeToken = $this->passwordResetRepository->checkTimeToken($passwordReset->updated_at);
+    //         if ($checkTimeToken == false) {
+    //             $passwordReset->delete();
+    //             return $this->sendError('The verification link has expired');
+    //         }
+    //         $account = $this->accountRepository->findByCond(['email', $passwordReset->email]);
+    //         $this->accountRepository->update([
+    //             'password' => Hash::make($password)
+    //         ], $account->id);
+    //         $passwordReset->delete();
+    //         return $this->sendResponse('Success');
+    //     }
+    //     catch (\Exception $exception) {
+    //         return $this->sendError($exception->getMessage());
+    //     }
+    // }
 }

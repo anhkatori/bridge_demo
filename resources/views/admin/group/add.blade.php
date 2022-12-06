@@ -5,8 +5,8 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-position">ユーザー登録　〉ユーザー一覧</h5>
-                    <h2 class="card-title mb-3">新規登録</h2>
+                    <h5 class="card-position">学校マスタ管理　〉学校管理</h5>
+                    <h2 class="card-title mb-3">団体マスタ登録</h2>
                     <a href="{{ URL::previous() }}" class="back">戻&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;る</a>
                 </div>
                 <div class="card-content">
@@ -15,34 +15,35 @@
                             <div class="col-xl-2 col-lg-6 col-md-12 mb-1 form-regist">
                                 <fieldset class="form-group ">
                                     <div class="box">
-                                        <label for="" class="">学校・団体名</label>                                    
-                                        <input type="text" name="school_name" id="school_name">
+                                        <label for="" class="">企業（団体名）</label>                                    
+                                        <input type="text" name="organization_name" id="organization_name">
                                     </div>
                                     <div class="box">
-                                        <label for="" class="">団&nbsp;体&nbsp;I&nbsp;D</label>                                    
+                                        <label for="" class="">団体ID</label>                                    
                                         <input type="text" name="group_id" id="group_id">
+                                    </div>
+                                    <div class="box">
+                                        <label for="" class="">種別</label>
+                                        <select name="type" id="">
+                                            <option value="">就労支援事業所</option>
+                                        </select>
+                                        
                                     </div>
                                     <div class="box">
                                         <label for="" class="">電話番号</label>
                                         <input type="text" name="phone_number" id="phone_number">
                                     </div>
                                     <div class="box">
-                                        <label for="" class="">管理者氏名</label>
-                                        <input type="text" name="admin_name" id="admin_name">
+                                        <label for="" class="">代表者氏名</label>
+                                        <input type="text" name="representative_name" id="representative_name">
                                     </div>
                                     <div class="box">
-                                        <label for="" class="">管理者 User ID</label>
-                                        <input type="text" name="admin_user_id" id="admin_user_id">
-                                    </div>
-                                    <div class="box">
-                                        <label for="" class="">管理者メールアドレス</label>
-                                        <input type="text" name="admin_email" id="admin_email">
+                                        <label for="" class="">担当者氏名</label>
+                                        <input type="text" name="person_charge_name" id="person_charge_name">
                                     </div>
                                     <div class=" box">
-                                        <label for="" class="">担当権限</label>
-                                        <select name="permission" id="">
-                                            <option value="">教師</option>
-                                        </select>
+                                        <label for="" class="">担当者メールアドレス</label>
+                                        <input type="text" name="type" id="person_charge_email">
                                         <button class="float-right btn btn-regist">追&nbsp;&nbsp;&nbsp;&nbsp;加&nbsp;&nbsp;&nbsp;&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;録</button>
                                     </div>
                                     

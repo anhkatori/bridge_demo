@@ -5,7 +5,7 @@
         <ul class="nav navbar-nav side-nav" id="sidebar">
             <li class="navigation" id="navigation">
                 <ul class="menu" id='menu-sidebar'>
-                    <li class="{{  \Request::segment(1) == 'schools' ? 'active' : ''  }}">
+                    <li class="{{  \Request::segment(1) == 'schools' || \Request::segment(1) == 'group' ? 'active' : ''  }}">
                         <a href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="88.94 159 22.355 25.47">
                                 <path d="M108.061 159H92.175a3.235 3.235 0 0 0-3.235 3.234v19.001a3.235 3.235 0 0 0 3.235 3.235h15.886a3.235 3.235 0 0 0 3.235-3.235v-19A3.235 3.235 0 0 0 108.06 159Zm-1.055 19.343c0 .662-.536 1.193-1.192 1.193H94.422a1.192 1.192 0 1 1 0-2.384h11.392a1.188 1.188 0 0 1 1.192 1.191Zm0-6.577c0 .662-.536 1.192-1.192 1.192H94.422a1.192 1.192 0 1 1 0-2.384h11.392c.656 0 1.192.53 1.192 1.192Zm0-6.577c0 .662-.536 1.192-1.192 1.192H94.422a1.192 1.192 0 1 1 0-2.384h11.392c.656 0 1.192.53 1.192 1.192Z" data-name="manage"/>
@@ -13,16 +13,16 @@
                         </a>
                         <ul class="dropdown-content position-absolute">
                             <li class="{{  \Request::segment(1) == 'schools' && \Request::segment(2) == '' ? 'active' : ''  }}"><a href="{{ url('schools') }}">学校管理</a></li>
-                            <li class="{{  \Request::segment(2) == 'add' ? 'active' : ''  }}"><a href="{{ url('schools/add') }}">新規登録</a></li>
-                            <li class="{{  \Request::segment(1) == 'group' ? 'active' : ''  }}"><a href="">団体マスタ登録</a></li>
-                            <li class="{{  \Request::segment(1) == 'group' && \Request::segment(2) == 'add' ? 'active' : ''  }}"><a href="">団体管理</a></li>    
+                            <li class="{{  \Request::segment(1) == 'schools' && \Request::segment(2) == 'add' ? 'active' : ''  }}"><a href="{{ url('schools/add') }}">学校マスタ登録</a></li>
+                            <li class="{{  \Request::segment(1) == 'group' && \Request::segment(2) == '' ? 'active' : ''  }}"><a href="{{ url('group') }}">団体マスタ登録</a></li>
+                            <li class="{{  \Request::segment(1) == 'group' && \Request::segment(2) == 'add' ? 'active' : ''  }}"><a href="{{ url('group/add') }}">団体管理</a></li>    
                         </ul>
                     </li>
                     <li class="{{ \Request::segment(1) == 'admin' ? 'active' : '' }}">
                         <a href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14px" height="14px" viewBox="0 0 14 16" version="1.1">
                                 <g id="surface1">
-                                    <path style=" stroke:none;fill-rule:evenodd;" d="M 12.144531 0 L 2.054688 0 C 0.921875 0 0 0.921875 0 2.054688 L 0 14.121094 C 0 15.253906 0.921875 16.175781 2.054688 16.175781 L 12.144531 16.175781 C 13.277344 16.175781 14.195312 15.253906 14.195312 14.121094 L 14.195312 2.054688 C 14.195312 0.921875 13.277344 0 12.144531 0 Z M 2.480469 13.125 L 3.140625 10.320312 L 5.285156 12.464844 Z M 12.183594 5.625 L 6.207031 11.601562 L 4.03125 9.425781 L 10.007812 3.453125 C 10.335938 3.128906 10.867188 3.128906 11.195312 3.453125 L 12.183594 4.441406 C 12.507812 4.769531 12.507812 5.296875 12.183594 5.625 Z M 12.183594 5.625 "/>
+                                    <path d="M 12.144531 0 L 2.054688 0 C 0.921875 0 0 0.921875 0 2.054688 L 0 14.121094 C 0 15.253906 0.921875 16.175781 2.054688 16.175781 L 12.144531 16.175781 C 13.277344 16.175781 14.195312 15.253906 14.195312 14.121094 L 14.195312 2.054688 C 14.195312 0.921875 13.277344 0 12.144531 0 Z M 2.480469 13.125 L 3.140625 10.320312 L 5.285156 12.464844 Z M 12.183594 5.625 L 6.207031 11.601562 L 4.03125 9.425781 L 10.007812 3.453125 C 10.335938 3.128906 10.867188 3.128906 11.195312 3.453125 L 12.183594 4.441406 C 12.507812 4.769531 12.507812 5.296875 12.183594 5.625 Z M 12.183594 5.625 "/>
                                 </g>
                             </svg>&nbsp;管理者登録
                         </a>

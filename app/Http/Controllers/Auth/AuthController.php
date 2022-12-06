@@ -21,8 +21,8 @@ class AuthController extends Controller
     }
     public function showLogin()
     {
-        if (Auth::user()) {
-            return redirect('/schools');
+        if (Auth::check()) {
+            return redirect('/users');
         }
         return view('admin.auth.login');
     }

@@ -31,59 +31,48 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-position">ユーザー登録　〉ユーザー一覧</h5>
-                        <h2 class="card-title">ユーザー一覧</h2>
-                        
+                        <h5 class="card-position">学校マスタ管理　〉学校管理</h5>
+                        <h2 class="card-title">団体マスタ管理</h2>
+                        <div class="heading-elements">
+                            <ul class="list-inline mb-0">
+{{--                                <li><a href="{{route('nk-categories.index')}}"><i class="fa fa-refresh"></i></a>--}}
+{{--                                </li>--}}
+{{--                            @if(Auth::user()->checkPermissionSuperAdmin(\App\Constants\CmsActionsSetting::SETTING_CATEGORY_NK_PRODUCT_INDEX))--}}
+{{--                                <li><a href="{{route('nk-categories.create')}}"><i class="fa fa-plus"></i></a></li>--}}
+{{--                            @endif--}}
+                            </ul>
+                        </div>
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            {{-- <div class="card-form"> --}}
-                                <div class="row justify-content-between">
-                            <form id="formSearch" class="form-search" action="" method="GET">
-                                
-
-                                    <div class="col-xl-2 col-lg-6 col-md-12 mb-1 form-search-users">
-                                        <fieldset class="form-group info-box-users">
-                                            <div class="info-up d-flex">
-                                                <div class="info d-flex">
-                                                    <label for="school-name">学校名</label>
-                                                    <input type="text" class="form-control" id="school-name" placeholder="">
-                                                </div>
-                                                <div class="info d-flex">
-                                                    <label for="year">年度</label>
-                                                    <input type="text" class="form-control" id="year" placeholder="">
-                                                </div>
-                                            </div>
-                                            <div class="info-down d-flex position-relative">
-                                                <div class="info d-flex">
-                                                    <label for="connected">所属</label>
-                                                    <input type="text" class="form-control" id="connected" placeholder="">
-                                                </div>
-                                                <div class="info d-flex">
-                                                    <label for="">個人</label>
-                                                    <input type="text" class="form-control" id="private" placeholder="">
-                                                </div>
-                                                <div class="tb-btn-search d-flex position-absolute">
-                                                    <a href="javascript:void(0)" id="btnSearch" class="btn btn-search"><i class="fa fa-search" aria-hidden="true"></i> 検索</a>
-                                                </div>
-                                            </div>
+                            <div class="d-flex justify-content-between">
+                            <form id="formRegist" class="" action="" method="GET">
+                                <div class="row">
+                                    <div class="col-xl-2 col-lg-6 col-md-12 mb-1 form-detail-search">
+                                        <fieldset class="form-group">
+                                            <input type="text" class="form-control" id="no" placeholder="No.">
+                                            <input type="text" class="form-control" id="organization_name" name="organization_name" placeholder="団体名">
+                                            <input type="text" class="form-control" id="type" name="type" placeholder="種別 ">
                                         </fieldset>
-                                    </div>      
-                                
+                                    </div>
+                                    <div class="tb-btn-regist">
+                                        <a href="javascript:void(0)" id="btnRegist" class="btn btn-search-detail font-weight-bold">検&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;索</a>
+                                    </div>
+                                    
+                                    
+                                </div>
                             </form>
-                            <div class="col-xl-2 col-lg-6 col-md-12 mb-1 d-flex form-add justify-content-end">
-                                <form action="" id="add-multiple" method="post" class="mt-auto">
-                                    <input type="file" name="add_multiple" id="btnAddMultiple" class="btn btn-add-multiple">
-                                    <label for="btnAddMultiple" id="add-multiple-name" class="btn">一括登録</label>
-                                </form>
-                                {{-- <form action="" id="add-single" method="post" class=""> --}}
-                                    <a href="{{ url('users/add') }}" id="btnAddSingle" class="mt-auto btn btn-add-single">個別登録</a>
-                                {{-- </form> --}}
+                            <form action="" id="formSearch" method="post" style="width: 414px;">
+                                <div class="col-xl-2 col-lg-6 col-md-12 mb-1 d-flex form-search-name">
+                                    <fieldset class="form-group">
+                                        <input type="text" class="form-control" id="search" name="search"placeholder="">
+                                        <a href="javascript:void(0)" id="btnSearch" class="btn btn-search"><i class="fa fa-search"></i></a>
+                                    </fieldset>
+                                </div>
+                            </form>
                             </div>
-                        </div>
-                        {{-- </div> --}}
                             <div id="gird">
-                                @include('admin.users.grid')
+                                @include('admin.group.grid')
                             </div>
                         </div>
                     </div>
@@ -105,14 +94,6 @@
 @endsection
 @section('scripts')
     <script>
-        $(document).ready(function() {
-        let inputFile = document.getElementById('btnAddMultiple');
-        let fileNameField = document.getElementById('add-multiple-name');
-            $(document).on('change', function(event) {
-                let uploadFileName = event.target.files[0].name;
-                fileNameField.textContent = uploadFileName;
-            })
-        })
         // $(document).ready(function () {
         //     let page = 1;
         //     $(document).on('click', '.pagination a', function (e) {
